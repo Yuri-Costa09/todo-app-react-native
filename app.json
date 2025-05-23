@@ -1,5 +1,8 @@
 {
   "expo": {
+    "router": {
+      "origin": "src/app"
+    },
     "name": "todo-app",
     "slug": "todo-app",
     "version": "1.0.0",
