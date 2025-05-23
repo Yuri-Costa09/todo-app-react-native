@@ -1,4 +1,6 @@
 import axios, { type InternalAxiosRequestConfig } from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { router } from 'expo-router';
 
 const api = axios.create({
     baseURL: 'https://aitrip.one/api',
@@ -8,8 +10,8 @@ const api = axios.create({
 });
 // intercepta as requisições para adicionar o token
 api.interceptors.request.use(
-    (config: InternalAxiosRequestConfig) => {
-        const token = localStorage.getItem('token');
+    async (config: InternalAxiosRequestConfig) => {
+        const token = await AsyncStorage.getItem('token');
         if (token && config.headers) {
            config.headers.Authorization = `Bearer ${token}`;
         }
@@ -22,10 +24,11 @@ api.interceptors.request.use(
 // intercepta as respostas para verificar se o token é válido
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
     if (error.response && error.response.status === 401) {
-      localStorage.removeItem('token');
-      window.location.href = '/login';
+      await AsyncStorage.removeItem('token');
+      await AsyncStorage.removeItem('userId');
+      router.replace('/(auth)/Login' as any);
     }
     return Promise.reject(error);
   }
