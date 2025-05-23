@@ -59,7 +59,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       await AsyncStorage.setItem('userId', userIdFromResponse);
       
       console.log('Stored userId:', userIdFromResponse);
-      router.replace('/(app)/Tasks' as any);
     } catch (error) {
       console.error('Login failed:', error);
       throw error;
@@ -69,7 +68,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const register = async (name: string, email: string, password: string) => {
     try {
       await registerService(name, email, password);
-      router.replace('/(auth)/Login' as any);
+      router.replace('/(auth)/Login');
     } catch (error) {
       console.error('Registration failed:', error);
       throw error;
@@ -82,7 +81,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       await AsyncStorage.removeItem('userId');
       setToken(null);
       setUserId(null);
-      router.replace('/(auth)/Login' as any);
     } catch (error) {
       console.error('Error during logout:', error);
     }

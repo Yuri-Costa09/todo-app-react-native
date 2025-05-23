@@ -8,6 +8,12 @@ export default function App() {
     const router = useRouter();
     const { token, isLoading } = useContext(AuthContext);
 
+    useEffect(() => {
+        if (!isLoading && token) {
+          router.replace("/(app)/Tasks");
+        }
+      }, [token, isLoading]);
+
     const handleRegister = () => {
         router.push("/(auth)/Register");
     };

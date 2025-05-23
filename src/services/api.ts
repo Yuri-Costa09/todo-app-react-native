@@ -28,7 +28,7 @@ api.interceptors.response.use(
     if (error.response && error.response.status === 401) {
       await AsyncStorage.removeItem('token');
       await AsyncStorage.removeItem('userId');
-      router.replace('/(auth)/Login' as any);
+      router.replace('/');
     }
     return Promise.reject(error);
   }
