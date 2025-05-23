@@ -68,6 +68,7 @@ export default function Register() {
                 <TextInput
                     placeholder="Email"
                     value={email}
+                    autoCapitalize="none"
                     onChangeText={setEmail}
                     className="w-full p-4 border border-gray-300 rounded-md text-xl shadow-lg"
                 />
@@ -76,6 +77,7 @@ export default function Register() {
                     placeholder="Password"
                     value={password}
                     onChangeText={setPassword}
+                    secureTextEntry={true}
                     className="w-full p-4 border border-gray-300 rounded-md text-xl shadow-lg"
                 />
 
@@ -83,6 +85,7 @@ export default function Register() {
                     placeholder="Confirm Password"
                     value={confirmPassword}
                     onChangeText={setConfirmPassword}
+                    secureTextEntry={true}
                     className="w-full p-4 border border-gray-300 rounded-md text-xl shadow-lg"
                 />
 

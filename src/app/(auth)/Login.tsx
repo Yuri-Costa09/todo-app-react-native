@@ -47,6 +47,7 @@ export default function Login() {
                 <TextInput
                     placeholder="Email"
                     value={email}
+                    autoCapitalize="none"
                     onChangeText={setEmail}
                     className="w-full p-4 border border-gray-300 rounded-md text-xl shadow-lg"
                 />
@@ -55,6 +56,7 @@ export default function Login() {
                     placeholder="Password"
                     value={password}
                     onChangeText={setPassword}
+                    secureTextEntry={true}
                     className="w-full p-4 border border-gray-300 rounded-md text-xl shadow-lg"
                 />
 
