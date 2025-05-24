@@ -63,7 +63,7 @@ Before running this project, make sure you have the following installed:
      ```bash
      npx expo start --android  # For Android
      npx expo start --ios      # For iOS
-     npx expo start --web      # For web browser
+     npx expo start --web --port 3000     # For web browser
      ```
 
 ## 📁 Project Structure
