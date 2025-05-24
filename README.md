@@ -1,171 +1,125 @@
- # Todo App - React Native
+# Todo App - React Native
 
-A modern and intuitive todo application built with React Native and Expo, featuring user authentication and task management capabilities.
+Uma aplicação de tarefas moderna e intuitiva construída com React Native e Expo, com recursos de autenticação de usuário e gerenciamento de tarefas.
 
-## Features
+## Funcionalidades
 
-- **User Authentication**
-  - User registration with validation
-  - Secure login/logout functionality
-  - Token-based authentication with AsyncStorage
-  - Password fields with secure text entry
+- **Autenticação de Usuário**
+  - Registro de usuário com validação
+  - Funcionalidade segura de login/logout
+  - Autenticação baseada em token com AsyncStorage
+  - Campos de senha com entrada de texto segura
 
-- **Task Management**
-  - Create new tasks
-  - Mark tasks as complete/incomplete
-  - Delete tasks with confirmation
-  - Real-time task updates
-  - User-specific task lists
+- **Gerenciamento de Tarefas**
+  - Criar novas tarefas
+  - Marcar tarefas como completas/incompletas
+  - Excluir tarefas com confirmação
+  - Atualizações de tarefas em tempo real
+  - Lista de tarefas específicas por usuário
 
-## 🛠️ Tech Stack
+## 🛠️ Stack Tecnológica
 
-- **Framework**: React Native with Expo
-- **Language**: TypeScript
-- **Navigation**: Expo Router (v5)
-- **Styling**: TailwindCSS with NativeWind
-- **State Management**: React Context API
-- **HTTP Client**: Axios
-- **Storage**: AsyncStorage
-- **Authentication**: JWT Token-based
+- **Framework**: React Native com Expo
+- **Linguagem**: TypeScript
+- **Navegação**: Expo Router (v5)
+- **Estilização**: TailwindCSS com NativeWind
+- **Gerenciamento de Estado**: React Context API
+- **Cliente HTTP**: Axios
+- **Armazenamento**: AsyncStorage
+- **Autenticação**: Baseada em Token JWT
 
-## 📋 Prerequisites
+## 📋 Pré-requisitos
 
-Before running this project, make sure you have the following installed:
+Antes de executar este projeto, certifique-se de ter o seguinte instalado:
 
-- [Node.js](https://nodejs.org/) (v16 or later)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+- [Node.js](https://nodejs.org/) (v16 ou superior)
+- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
 - [Expo CLI](https://docs.expo.dev/get-started/installation/)
-- [Expo Go app](https://expo.dev/client) on your mobile device (for testing)
+- [App Expo Go](https://expo.dev/client) no seu dispositivo móvel (para testes)
 
-## 🚀 Installation
+## 🚀 Instalação
 
-1. **Clone the repository**
+1. **Clone o repositório**
    ```bash
    git clone <https://github.com/Yuri-Costa09/todo-app-react-native>
    cd todo-app-react-native
    ```
 
-2. **Install dependencies**
+2. **Instale as dependências**
    ```bash
    npm install
-   # or
+   # ou
    yarn install
    ```
 
-3. **Start the development server**
+3. **Inicie o servidor de desenvolvimento**
    ```bash
    npx expo start
    ```
 
-4. **Run on your device**
-   - Scan the QR code with Expo Go app (Android) or Camera app (iOS)
-   - Or use the commands:
+4. **Execute no seu dispositivo**
+   - Escaneie o código QR com o app Expo Go (Android) ou app Câmera (iOS)
+   - Ou use os comandos:
      ```bash
-     npx expo start --android  # For Android
-     npx expo start --ios      # For iOS
-     npx expo start --web --port 3000     # For web browser
+     npx expo start --android  # Para Android
+     npx expo start --ios      # Para iOS
+     npx expo start --web --port 3000     # Para navegador web
      ```
 
-## 📁 Project Structure
+## 📁 Estrutura do Projeto
 
 ```
 src/
-├── app/                    # Expo Router pages
-│   ├── (app)/             # Authenticated app screens
-│   │   ├── Tasks.tsx      # Main tasks screen
-│   │   └── _layout.tsx    # App layout with TasksProvider
-│   ├── (auth)/            # Authentication screens
-│   │   ├── Login.tsx      # Login screen
-│   │   ├── Register.tsx   # Registration screen
-│   │   └── _layout.tsx    # Auth layout
-│   ├── index.tsx          # Landing/redirect page
-│   └── _layout.tsx        # Root layout with AuthProvider
-├── context/               # React Context providers
-│   ├── AuthContext.tsx    # Authentication state management
-│   └── TaskContext.tsx    # Tasks state management
-├── services/              # API services
-│   ├── api.ts            # Axios configuration
-│   ├── authService.ts    # Authentication API calls
-│   └── taskService.ts    # Tasks API calls
+├── app/                    # Páginas do Expo Router
+│   ├── (app)/             # Telas do app autenticado
+│   │   ├── Tasks.tsx      # Tela principal de tarefas
+│   │   └── _layout.tsx    # Layout do app com TasksProvider
+│   ├── (auth)/            # Telas de autenticação
+│   │   ├── Login.tsx      # Tela de login
+│   │   ├── Register.tsx   # Tela de registro
+│   │   └── _layout.tsx    # Layout de autenticação
+│   ├── index.tsx          # Página de aterrissagem/redirecionamento
+│   └── _layout.tsx        # Layout raiz com AuthProvider
+├── context/               # Provedores de React Context
+│   ├── AuthContext.tsx    # Gerenciamento de estado de autenticação
+│   └── TaskContext.tsx    # Gerenciamento de estado de tarefas
+├── services/              # Serviços de API
+│   ├── api.ts            # Configuração do Axios
+│   ├── authService.ts    # Chamadas de API de autenticação
+│   └── taskService.ts    # Chamadas de API de tarefas
 ```
 
-## 🔧 Configuration
+## 🔧 Configuração
 
-### API Configuration
+### Configuração da API
 
-The app is configured to connect to the backend API at:
+O app está configurado para se conectar à API do backend em:
 ```
-Base URL: https://aitrip.one/api
+URL Base: https://aitrip.one/api
 ```
 
-If you need to change the API endpoint, modify the `baseURL` in `src/services/api.ts`.
+Se você precisar alterar o endpoint da API, modifique a `baseURL` em `src/services/api.ts`.
 
-### Environment Setup
+## 🎯 Uso
 
-Make sure your backend API supports the following endpoints:
+### Fluxo de Autenticação
 
-**Authentication:**
-- `POST /auth/login` - User login
-- `POST /auth/register` - User registration
+1. **Registro**: Novos usuários podem criar uma conta com nome, email e senha
+2. **Login**: Usuários existentes podem fazer login com email e senha
+3. **Login automático**: O app lembra usuários logados usando AsyncStorage
+4. **Logout**: Usuários podem fazer logout, o que limpa os tokens armazenados
 
-**Tasks:**
-- `GET /tasks/user/:userId` - Get user tasks
-- `POST /tasks/create` - Create new task
-- `PUT /tasks/update/:taskId` - Update task
-- `DELETE /tasks/delete/:taskId` - Delete task
+### Gerenciamento de Tarefas
 
-## 🎯 Usage
+1. **Criar Tarefas**: Adicione novas tarefas usando o campo de entrada
+2. **Alternar Conclusão**: Toque na checkbox para marcar tarefas como completas/incompletas
+3. **Excluir Tarefas**: Toque em "Excluir" com diálogo de confirmação
 
-### Authentication Flow
+### Estilo de Código
 
-1. **Registration**: New users can create an account with name, email, and password
-2. **Login**: Existing users can log in with email and password
-3. **Auto-login**: The app remembers logged-in users using AsyncStorage
-4. **Logout**: Users can logout, which clears stored tokens
+O projeto usa:
+- TypeScript para segurança de tipos
+- TailwindCSS com NativeWind para estilização consistente
+- Context API para gerenciamento de estado
+- Componentes funcionais com hooks
 
-### Task Management
-
-1. **Create Tasks**: Add new tasks using the input field
-2. **Toggle Completion**: Tap the checkbox to mark tasks as complete/incomplete
-3. **Delete Tasks**: Tap "Excluir" with confirmation dialog
-
-### Code Style
-
-The project uses:
-- TypeScript for type safety
-- TailwindCSS with NativeWind for consistent styling
-- Context API for state management
-- Functional components with hooks
-
-### Adding New Features
-
-1. **New Screens**: Add files to appropriate `app/` subdirectories
-2. **New Services**: Add API functions to `services/` directory
-3. **New Context**: Create context providers in `context/` directory
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **App not loading**: Make sure Expo CLI is installed and you're on the same network
-2. **API errors**: Check if the backend server is running and accessible
-3. **Authentication issues**: Clear AsyncStorage by logging out and logging back in
-4. **Styling issues**: Make sure NativeWind is properly configured
-
-### Debug Mode
-
-Enable debug logs by checking the console in Expo Dev Tools or React Native Debugger.
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👨‍💻 Author
-
-**Yuri Costa*
-<!-- @import "[TOC]" {cmd="toc" depthFrom=1 depthTo=6 orderedList=false} -->
-*
-
----
-
-⭐ Star this repo if you found it helpful!
